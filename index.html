@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
     <title>Timer.js</title>
   </head>
   <body>
+    <div id="background"></div>
     <div id="ui-controller">
       <h3>타이머 생성기</h3>
       <ul>
@@ -21,6 +28,7 @@
         <li>
           <span>표현</span>
           <input id="express-input" type="checkbox" checked />
+          <input id="express-color-input" type="color" />
         </li>
         <li>
           <span>스타일</span>
@@ -28,13 +36,18 @@
           <input type="radio" value="standard" id="standard" name="style" />
           <label for="stripecandy">캔디바</label>
           <input type="radio" value="candy" id="candy" name="style" checked />
-          <input type="color" />
+          <input id="bar-color-input" type="color" />
         </li>
         <li>
           <div>
-            <span>배경</span><input id="background-input" type="file" />
+            <span>배경</span
+            ><input id="background-input" accept="img/*" type="file" />
           </div>
-          <div><span>단색</span><input type="color" /></div>
+          <div>
+            <span>단색</span><input id="background-solid-input" type="color" />
+            <span>블러</span
+            ><input id="background-blur-input" type="checkbox" />
+          </div>
         </li>
         <li><span>글로우</span><input id="glow-input" type="checkbox" /></li>
         <li>
@@ -49,7 +62,7 @@
         </li>
       </ul>
     </div>
-    <h2 id="title">타이머 이름</h2>
+    <h1 id="title">타이머 이름</h1>
     <div id="timer">
       <div class="meter">
         <span id="timer-bar" class="candy" style="width: 25%"
@@ -57,7 +70,7 @@
         ></span>
       </div>
     </div>
-    <h3 id="time">0.000000%</h3>
+    <h3 id="time">00.000000%</h3>
     <script src="./timer.js"></script>
   </body>
 </html>

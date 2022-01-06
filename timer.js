@@ -22,6 +22,12 @@ const expressInput = document
   .getElementById("express-input")
   .addEventListener("change", (e) => {});
 
+const expressColorInput = document
+  .getElementById("express-color-input")
+  .addEventListener("input", (e) => {
+    document.documentElement.style.color = e.target.value;
+  });
+
 const styleInput = document.getElementsByName("style");
 for (styleRadio in styleInput) {
   styleInput[styleRadio].onclick = function () {
@@ -29,9 +35,39 @@ for (styleRadio in styleInput) {
   };
 }
 
+const barColorInput = document
+  .getElementById("bar-color-input")
+  .addEventListener("input", (e) => {
+    document.getElementById("timer-bar").style.backgroundColor = e.target.value;
+  });
+
+const backgroundSolidInput = document
+  .getElementById("background-solid-input")
+  .addEventListener("input", (e) => {
+    document.getElementById("background").style.backgroundImage = "";
+    document.getElementById("background").style.backgroundColor =
+      e.target.value;
+  });
+
 const backgroundInput = document
   .getElementById("background-input")
-  .addEventListener("change", (e) => {});
+  .addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+    if (!file.type.match("image/.*")) {
+      alert("이미지만 업로드 가능합니다.");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onloadend = function () {
+      document.getElementById("background").style.backgroundImage =
+        "url(" + reader.result + ")";
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+    }
+  });
 
 const glowInput = document
   .getElementById("glow-input")
@@ -65,7 +101,7 @@ function intervalTimeRate() {
   const rate = (((t - time.sTime) / (time.eTime - time.sTime)) * 100).toFixed(
     6
   );
-  document.getElementById("time").innerText = rate;
+  document.getElementById("time").innerText = rate + "%";
 }
 
 function parseTime(start, end) {
