@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  background-color: #d3d3d3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #ui-controller {
+    h3 {
+      margin: 15px 5px 5px 10px;
+    }
+    position: fixed;
+    padding: 5px;
+    top: 1vh;
+    right: 1vh;
+    width: 350px;
+    height: 430px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    color: white;
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 5px;
+      input {
+        display: inline;
+      }
+      li {
+        padding: 5px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        span {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .slide-container {
+      width: 100%;
+      .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 15px;
+        margin: 0;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: rgb(59, 95, 255);
+          cursor: pointer;
+        }
+        &::-moz-range-thumb {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: rgb(59, 95, 255);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  #timer {
+    width: 75vw;
+    .meter {
+      height: 20px;
+      position: relative;
+      background: #777;
+      border-radius: 25px;
+      padding: 0px;
+      box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+      & > span {
+        display: block;
+        height: 100%;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        background-color: rgb(43, 194, 83);
+        background-image: linear-gradient(
+          center bottom,
+          rgb(43, 194, 83) 37%,
+          rgb(84, 240, 84) 69%
+        );
+        box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+          inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+      &.black > span {
+        background-color: #555;
+        background-image: linear-gradient(to bottom, #555, #000);
+      }
+
+      &.red > span {
+        background-color: #f0a3a3;
+        background-image: linear-gradient(to bottom, #f0a3a3, #f42323);
+      }
+
+      &.filled > span {
+        background-color: #f0a3a3;
+        background-image: linear-gradient(to bottom, #f0a3a3, #f42323);
+      }
+
+      & > span.candy {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-image: linear-gradient(
+          -45deg,
+          rgba(255, 255, 255, 0.2) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.2) 50%,
+          rgba(255, 255, 255, 0.2) 75%,
+          transparent 75%,
+          transparent
+        );
+        z-index: 1;
+        background-size: 50px 50px;
+        animation: move 2s linear infinite;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        overflow: hidden;
+      }
+    }
+    .meter > span:after,
+    .animate > span > span {
+      animation: move 2s linear infinite;
+    }
+    .animate > span::after {
+      display: none;
+    }
+    @keyframes move {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 50px 50px;
+      }
+    }
+  }
+}

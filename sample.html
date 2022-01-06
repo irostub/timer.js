@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Timer.js</title>
+  </head>
+  <body>
+    <div id="ui-controller">
+      <h3>타이머 생성기</h3>
+      <ul>
+        <li><span>시작</span><input id="start-input" type="date" /></li>
+        <li><span>종료</span><input id="end-input" type="date" /></li>
+        <li>
+          <span>항상 현재부터</span>
+          <input id="now-input" type="checkbox" />
+        </li>
+        <li><span>타이머 이름</span><input id="title-input" type="text" /></li>
+        <li>
+          <span>표현</span>
+          <input id="express-input" type="checkbox" checked />
+        </li>
+        <li>
+          <span>스타일</span>
+          <label for="standard">기본</label>
+          <input type="radio" value="standard" id="standard" name="style" />
+          <label for="stripecandy">캔디바</label>
+          <input type="radio" value="candy" id="candy" name="style" checked />
+          <input type="color" />
+        </li>
+        <li>
+          <div>
+            <span>배경</span><input id="background-input" type="file" />
+          </div>
+          <div><span>단색</span><input type="color" /></div>
+        </li>
+        <li><span>글로우</span><input id="glow-input" type="checkbox" /></li>
+        <li>
+          <span>출력</span><button id="export-btn" type="button">Export</button>
+        </li>
+        <li>
+          <span>powerd by</span>
+          <a href="https://github.com/irostub"
+            ><img
+              src="http://img.shields.io/badge/-irostub-black?style=flat-square&logo=github&link=https://github.com/irostub"
+          /></a>
+        </li>
+      </ul>
+    </div>
+    <h2 id="title">타이머 이름</h2>
+    <div id="timer">
+      <div class="meter">
+        <span id="timer-bar" class="candy" style="width: 25%"
+          ><span></span
+        ></span>
+      </div>
+    </div>
+    <h3 id="time">0.000000%</h3>
+    <script src="./timer.js"></script>
+  </body>
+</html>

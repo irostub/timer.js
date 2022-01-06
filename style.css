@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #d3d3d3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html #ui-controller,
+body #ui-controller {
+  position: fixed;
+  padding: 5px;
+  top: 1vh;
+  right: 1vh;
+  width: 350px;
+  height: 430px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  color: white;
+}
+html #ui-controller h3,
+body #ui-controller h3 {
+  margin: 15px 5px 5px 10px;
+}
+html #ui-controller ul,
+body #ui-controller ul {
+  list-style: none;
+  margin: 0px;
+  padding: 5px;
+}
+html #ui-controller ul input,
+body #ui-controller ul input {
+  display: inline;
+}
+html #ui-controller ul li,
+body #ui-controller ul li {
+  padding: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+html #ui-controller ul li span,
+body #ui-controller ul li span {
+  margin-right: 5px;
+}
+html #ui-controller .slide-container,
+body #ui-controller .slide-container {
+  width: 100%;
+}
+html #ui-controller .slide-container .slider,
+body #ui-controller .slide-container .slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  margin: 0;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+html #ui-controller .slide-container .slider::-webkit-slider-thumb,
+body #ui-controller .slide-container .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3b5fff;
+  cursor: pointer;
+}
+html #ui-controller .slide-container .slider::-moz-range-thumb,
+body #ui-controller .slide-container .slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3b5fff;
+  cursor: pointer;
+}
+html #timer,
+body #timer {
+  width: 75vw;
+}
+html #timer .meter,
+body #timer .meter {
+  height: 20px;
+  position: relative;
+  background: #777;
+  border-radius: 25px;
+  padding: 0px;
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+}
+html #timer .meter > span,
+body #timer .meter > span {
+  display: block;
+  height: 100%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #2bc253;
+  background-image: linear-gradient(center bottom, #2bc253 37%, #54f054 69%);
+  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+html #timer .meter.black > span,
+body #timer .meter.black > span {
+  background-color: #555;
+  background-image: linear-gradient(to bottom, #555, #000);
+}
+html #timer .meter.red > span,
+body #timer .meter.red > span {
+  background-color: #f0a3a3;
+  background-image: linear-gradient(to bottom, #f0a3a3, #f42323);
+}
+html #timer .meter.filled > span,
+body #timer .meter.filled > span {
+  background-color: #f0a3a3;
+  background-image: linear-gradient(to bottom, #f0a3a3, #f42323);
+}
+html #timer .meter > span.candy,
+body #timer .meter > span.candy {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  z-index: 1;
+  background-size: 50px 50px;
+  animation: move 2s linear infinite;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
+}
+html #timer .meter > span:after,
+html #timer .animate > span > span,
+body #timer .meter > span:after,
+body #timer .animate > span > span {
+  animation: move 2s linear infinite;
+}
+html #timer .animate > span::after,
+body #timer .animate > span::after {
+  display: none;
+}
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
